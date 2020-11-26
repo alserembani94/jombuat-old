@@ -19,7 +19,7 @@ export const getServerSideProps = async(context) => {
   await fetch('https://v1.nocodeapi.com/alserembani/google_sheets/XQsvzGyRcILpJBNG?tabId=community').then(res => res.json).then(data => result = data);
   return { 
     props: {
-      community: JSON.parse(JSON.stringify(result))
+      community: null
     }
   };
 }
