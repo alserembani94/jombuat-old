@@ -1,52 +1,69 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import { SearchBox } from 'react-instantsearch-dom';
+import axios from 'axios'
+import Header from '../components/header'
+import Footer from '../components/footer'
 
-// export const getStaticProps = async() => {  
-//   const projectUrl = 'https://api.sheety.co/f01718588e1a9fd13e5c0b18276cbaaa/jombuat';
-//   const res = await fetch('https://api.sheety.co/f01718588e1a9fd13e5c0b18276cbaaa/jombuat/community');
-//   const json = await res.json;
-//   return { 
-//     props: {
-//       env: JSON.stringify(json)
-//     }
-//   };
-// };
-export const getServerSideProps = async(context) => {
-  // const projectUrl = 'https://api.sheety.co/f01718588e1a9fd13e5c0b18276cbaaa/jombuat';
-  let result;
-  await fetch('https://v1.nocodeapi.com/alserembani/google_sheets/XQsvzGyRcILpJBNG?tabId=community').then(res => res.json).then(data => result = data);
-  return { 
-    props: {
-      community: null
-    }
-  };
-}
 
-const Home = ({ community }) => {
+const Home = () => {
+  const [community, setCommunity] = useState([]);
+  const [search, setSearch] = useState('');
+  const [filteredCommunity, setFilteredCommunity] = useState([]);
+
   useEffect(() => {
-    console.log(community);
+    axios.get('https://v1.nocodeapi.com/alserembani/google_sheets/XQsvzGyRcILpJBNG?tabId=community').then(result => {
+      setCommunity(() => result.data.data);
+    });
   }, [])
+
+  useEffect(() => {
+    const filteredData = community.filter(comm => {
+      const splitName = comm.Name.split(' ');
+      let flag = false;
+      splitName.forEach(word => {
+        if(word.toLowerCase().startsWith(search.toLowerCase())) flag = true;
+      })
+      return flag;
+    })
+    setFilteredCommunity(() => filteredData);
+  }, [search])
 
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>JomCreate! - Community</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Header />
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+      <section className={styles.body}>
+        <input
+          className={styles.search}
+          type="text"
+          value={search}
+          onChange={({ currentTarget: { value } }) => setSearch(() => value)}
+          placeholder="Find who is in the community!"
+        />
+
+        <ul className={styles.result}>
+          {filteredCommunity && filteredCommunity.map(user => (
+            <a href={user.Link} target="_blank" rel="noreferrer noopener" key={user.row_id}>
+              <li className={styles.user_card}>
+                <img className={styles.user_avatar} src={user.Avatar} alt={user.Name} />
+                <p className={styles.user_name}>{user.Name}</p>
+                <p className={styles.user_designation}>{user.Designation}</p>
+                <p className={styles.user_organisation}>{user.Organization}</p>
+                <p className={styles.user_location}>{user.Location}</p>
+              </li>
+            </a>
+          ))}
+        </ul>
+      </section>
+
+      <Footer />
+
     </div>
   )
 }

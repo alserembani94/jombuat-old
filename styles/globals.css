@@ -13,4 +13,37 @@ a {
 
 * {
   box-sizing: border-box;
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 5px;
+}
+
+*:hover::-webkit-scrollbar-thumb {
+  background: #4A8EED;
+}
+
+:root {
+  font-size: 16px;
+}
+
+ul, ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0;
 }

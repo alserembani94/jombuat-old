@@ -1,0 +1,32 @@
+.result {
+    flex-flow: column wrap;
+    justify-content: flex-start;
+}
+
+.product_card {
+    text-align: left;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    width: 100%;
+    padding: 30px 50px;
+    border-bottom: 1px solid #00000022;
+    transition: all 0.3s ease;
+}
+
+.product_card:hover {
+    background-color: #00000002;
+    transition: all 0.3s ease;
+}
+
+.product_name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #1f6cd6 0%, #72b6b0 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.product_card:hover .product_name {
+    -webkit-text-fill-color: #00000033;
+}
