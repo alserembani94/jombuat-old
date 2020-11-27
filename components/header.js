@@ -4,26 +4,27 @@ import styles from '../styles/Home.module.css'
 const Header = () => (
     <header className={styles.header} data-trigger={false}>
         <div>
-            <h3 className={styles.brand}>JomCreate</h3>
+            {/* <h3 className={styles.brand}>JomCreate</h3> */}
+            <img src='./Logo-JomBuat.svg' alt="JomBuat" />
             <ul>
                 <li>
                     <Link href='/'>
                         <a>
-                            Community
+                            Komuniti
                         </a>
                     </Link>
                 </li>
                 <li>
                     <Link href='/jobs'>
                         <a>
-                            Jobs
+                            Pekerjaan
                         </a>
                     </Link>
                 </li>
                 <li>
                     <Link href='/products'>
                         <a>
-                            Products
+                            Produk
                         </a>
                     </Link>
                 </li>

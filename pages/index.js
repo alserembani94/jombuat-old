@@ -33,19 +33,43 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>JomCreate! - Community</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>JomBuat - Komuniti</title>
+        <link rel="icon" href="/faviconjombuat.svg" />
+        {/* <link rel="icon" href="/favicon.ico" /> */}
+        {/* Primary Meta Tags */}
+        <meta name="title" content="JomBuat - Komuniti" />
+        <meta name="description" content="Bila-bila masa, di mana sahaja, belajar dan lancarkan! Bersama komuniti kami!" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://jombuat.club/" />
+        <meta property="og:title" content="JomBuat - Komuniti" />
+        <meta property="og:description" content="Bila-bila masa, di mana sahaja, belajar dan lancarkan! Bersama komuniti kami!" />
+        <meta property="og:image" content="./Logo-JomBuat.svg" />
+
+        {/* <!-- Twitter --> */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://jjombuat.club/" />
+        <meta property="twitter:title" content="JomBuat - Komuniti" />
+        <meta property="twitter:description" content="Bila-bila masa, di mana sahaja, belajar dan lancarkan! Bersama komuniti kami!" />
+        <meta property="twitter:image" content="./Logo-JomBuat.svg" />
       </Head>
 
       <Header />
 
       <section className={styles.body}>
+        <div className={styles.highlight}>
+          <h1>Bila-bila masa, di mana sahaja</h1>
+          <h1 className={styles.highlight_gradient}>Belajar & Lancarkan!</h1>
+          <h4>Cari pengasas, pembuat, pekerjaan & produk</h4>
+        </div>
+
         <input
           className={styles.search}
           type="text"
           value={search}
           onChange={({ currentTarget: { value } }) => setSearch(() => value)}
-          placeholder="Find who is in the community!"
+          placeholder="Cari siapa dalam komuniti kita!"
         />
 
         <ul className={styles.result}>

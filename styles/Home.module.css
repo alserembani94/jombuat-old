@@ -3,6 +3,38 @@
   box-shadow: 0px 4px 10px #00000011;
   display: flex;
   justify-content: center;
+  position: sticky;
+  top: 0px;
+  background: white;
+}
+
+.highlight {
+  display: flex;
+  flex-flow: column wrap;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 40px;
+  /* line-height: 2rem; */
+}
+
+.highlight > h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.highlight > h4 {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.highlight_gradient {
+  background: linear-gradient(90deg, #1f6cd6 0%, #72b6b0 100%);
+  background-size: 400% 400%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientWipe 10s ease infinite;
 }
 
 .brand {
@@ -72,6 +104,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: sticky;
+  bottom: 0px;
+  background: white;
+}
+
+.footer > div {
+  width: clamp(300px, 100%, 1200px);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 25px 20px;
+  align-items: center;
+}
+
+.author {
+  display: flex;
+}
+
+.cta {
+  display: flex;
 }
 
 .footer img {
@@ -167,7 +219,7 @@
   display: flex;
   flex-flow: column wrap;
   flex-grow: 1;
-  padding: 50px 20px 0px;
+  padding: 50px 20px;
   align-items: center;
   width: clamp(300px, 100%, 1200px);
 }
@@ -196,9 +248,9 @@
   flex-flow: row wrap;
   text-align: center;
   justify-content: space-around;
-  height: 65vh;
+  /* height: 65vh; */
   overflow: auto;
-  box-shadow: inset 0px -17px 5px -9px #00000015, inset 0px 12px 5px -9px #00000015;
+  /* box-shadow: inset 0px -17px 5px -9px #00000015, inset 0px 12px 5px -9px #00000015; */
 }
 
 .user_card {
@@ -238,6 +290,15 @@
 .user_designation {
   font-weight: 700;
   color: #00000088;
+}
+
+.cta > ul {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.cta > ul > li {
+  margin: 0px 5px;
 }
 
 @media (max-width: 600px) {

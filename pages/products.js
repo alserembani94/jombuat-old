@@ -34,8 +34,25 @@ const Products = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>JomCreate! - Products</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>JomBuat - Produk</title>
+        <link rel="icon" href="/faviconjombuat.svg" />
+        {/* Primary Meta Tags */}
+        <meta name="title" content="JomBuat - Produk" />
+        <meta name="description" content="Bila-bila masa, di mana sahaja, belajar dan lancarkan! Ketahui produk yang ada di JomLaunch 2020!" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://jombuat.club/" />
+        <meta property="og:title" content="JomBuat - Produk" />
+        <meta property="og:description" content="Bila-bila masa, di mana sahaja, belajar dan lancarkan! Ketahui produk yang ada di JomLaunch 2020!" />
+        <meta property="og:image" content="./Logo-JomBuat.svg" />
+
+        {/* <!-- Twitter --> */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://jjombuat.club/" />
+        <meta property="twitter:title" content="JomBuat - Produk" />
+        <meta property="twitter:description" content="Bila-bila masa, di mana sahaja, belajar dan lancarkan! Ketahui produk yang ada di JomLaunch 2020!" />
+        <meta property="twitter:image" content="./Logo-JomBuat.svg" />
       </Head>
 
       <Header />
@@ -46,7 +63,7 @@ const Products = () => {
           type="text"
           value={search}
           onChange={({ currentTarget: { value } }) => setSearch(() => value)}
-          placeholder="Find what product is featured on JomLaunch 2020!"
+          placeholder="Ketahui produk yang dilancarkan di JomLaunch 2020!"
         />
 
         <ul className={`${styles.result} ${productStyles.result}`}>

@@ -34,8 +34,25 @@ const Jobs = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>JomCreate! - Jobs</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>JomBuat - Pekerjaan</title>
+        <link rel="icon" href="/faviconjombuat.svg" />
+        {/* Primary Meta Tags */}
+        <meta name="title" content="JomBuat - Pekerjaan" />
+        <meta name="description" content="Bila-bila masa, di mana sahaja, belajar dan lancarkan! Cari pekerjaan melalui komuniti kami!" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://jombuat.club/" />
+        <meta property="og:title" content="JomBuat - Pekerjaan" />
+        <meta property="og:description" content="Bila-bila masa, di mana sahaja, belajar dan lancarkan! Cari pekerjaan melalui komuniti kami!" />
+        <meta property="og:image" content="./Logo-JomBuat.svg" />
+
+        {/* <!-- Twitter --> */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://jjombuat.club/" />
+        <meta property="twitter:title" content="JomBuat - Pekerjaan" />
+        <meta property="twitter:description" content="Bila-bila masa, di mana sahaja, belajar dan lancarkan! Cari pekerjaan melalui komuniti kami!" />
+        <meta property="twitter:image" content="./Logo-JomBuat.svg" />
       </Head>
 
       <Header />
@@ -46,7 +63,7 @@ const Jobs = () => {
           type="text"
           value={search}
           onChange={({ currentTarget: { value } }) => setSearch(() => value)}
-          placeholder="Find what job is available!"
+          placeholder="Nak cari pekerjaan melalui komuniti?"
         />
 
         <ul className={`${styles.result} ${jobStyles.result}`}>
