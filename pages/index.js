@@ -1,14 +1,33 @@
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import jobStyles from '../styles/Jobs.module.css'
+import productStyles from '../styles/Products.module.css'
 import axios from 'axios'
 import Header from '../components/header'
 import Footer from '../components/footer'
 
+const filterData = (dataArray, searchParam) => {
+  const filteredData = dataArray.filter(data => {
+    const splitName = data.nama.split(' ');
+    let flag = false;
+    splitName.forEach(word => {
+      if(word.toLowerCase().startsWith(searchParam.toLowerCase())) flag = true;
+    })
+    return flag;
+  })
+  return filteredData;
+};
+
 const Home = () => {
   const [community, setCommunity] = useState([]);
-  const [search, setSearch] = useState('');
   const [filteredCommunity, setFilteredCommunity] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [jobs, setJobs] = useState([]);
+  const [filteredJobs, setFilteredJobs] = useState([]);
+  
+  const [search, setSearch] = useState('');
 
   // * Category section
   const categoryList = [
@@ -23,22 +42,24 @@ const Home = () => {
   };
 
   useEffect(() => {
-    axios.get('https://v1.nocodeapi.com/alserembani/google_sheets/XQsvzGyRcILpJBNG?tabId=community').then(result => {
+    axios.get('https://v1.nocodeapi.com/alserembani/google_sheets/XQsvzGyRcILpJBNG?tabId=komuniti').then(result => {
       setCommunity(() => result.data.data);
       setFilteredCommunity(() => result.data.data);
+    });
+    axios.get('https://v1.nocodeapi.com/alserembani/google_sheets/XQsvzGyRcILpJBNG?tabId=produk').then(result => {
+      setProducts(() => result.data.data);
+      setFilteredProducts(() => result.data.data);
+    });
+    axios.get('https://v1.nocodeapi.com/alserembani/google_sheets/XQsvzGyRcILpJBNG?tabId=pekerjaan').then(result => {
+      setJobs(() => result.data.data);
+      setFilteredJobs(() => result.data.data);
     });
   }, [])
 
   useEffect(() => {
-    const filteredData = community.filter(comm => {
-      const splitName = comm.Name.split(' ');
-      let flag = false;
-      splitName.forEach(word => {
-        if(word.toLowerCase().startsWith(search.toLowerCase())) flag = true;
-      })
-      return flag;
-    })
-    setFilteredCommunity(() => filteredData);
+    setFilteredCommunity(() => filterData(community, search));
+    // setFilteredProducts(() => filterData(products, search));
+    // setFilteredJobs(() => filterData(jobs, search));
   }, [search])
 
   return (
@@ -92,19 +113,52 @@ const Home = () => {
           />
         </div>
 
-        <ul className={styles.result}>
-          {filteredCommunity && filteredCommunity.map(user => (
-            <a href={user.Link} target="_blank" rel="noreferrer noopener" key={user.row_id}>
-              <li className={styles.user_card}>
-                <img className={styles.user_avatar} src={user.Avatar} alt={user.Name} />
-                <p className={styles.user_name}>{user.Name}</p>
-                <p className={styles.user_designation}>{user.Designation}</p>
-                <p className={styles.user_organisation}>{user.Organization}</p>
-                <p className={styles.user_location}>{user.Location}</p>
-              </li>
-            </a>
-          ))}
-        </ul>
+        {
+          (category === 'all' || category === 'members') && <ul className={styles.result}>
+            {filteredCommunity && filteredCommunity.map(user => (
+              <a href={user.pautan} target="_blank" rel="noreferrer noopener" key={user.row_id}>
+                <li className={styles.user_card}>
+                  <img className={styles.user_avatar} src={user.avatar} alt={user.nama} />
+                  <p className={styles.user_name}>{user.nama}</p>
+                  <p className={styles.user_designation}>{user.jawatan}</p>
+                  <p className={styles.user_organisation}>{user.organisasi}</p>
+                  <p className={styles.user_location}>{user.lokasi}</p>
+                </li>
+              </a>
+            ))}
+          </ul>
+        }
+
+        {
+          (category === 'all' || category === 'products') && <ul className={`${styles.result} ${productStyles.result}`}>
+            {
+                filteredProducts && filteredProducts.map(prod => (
+                  <a href={prod.pautan} target="_blank" rel="noreferrer noopener">
+                      <li className={productStyles.product_card} key={prod.row_id}>
+                          <p className={productStyles.product_name}>{prod.nama}</p>
+                      </li>
+                  </a>
+                ))
+            }
+          </ul>
+        }
+
+        {
+          (category === 'all' || category === 'jobs') && <ul className={`${styles.result} ${jobStyles.result}`}>
+            {
+                filteredJobs && filteredJobs.map(job => {
+                    if (job.status === 'FALSE') return (
+                        <a href={job.pautan} target="_blank" rel="noreferrer noopener" key={job.row_id}>
+                            <li className={jobStyles.job_card}>
+                                <p className={jobStyles.job_company}>{job.syarikat}</p>
+                                <p className={jobStyles.job_role}>{job.nama}</p>
+                            </li>
+                        </a>
+                      )
+                  })
+              }
+          </ul>
+        }
       </section>
 
       <Footer />

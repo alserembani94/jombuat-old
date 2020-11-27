@@ -5,26 +5,30 @@ const Header = () => (
     <header className={styles.header} data-trigger={false}>
         <div>
             {/* <h3 className={styles.brand}>JomCreate</h3> */}
-            <img className={styles.brand} src='./Logo-JomBuat.svg' alt="JomBuat" />
+            <Link href='/'>
+                <a>
+                    <img className={styles.brand} src='./Logo-JomBuat.svg' alt="JomBuat" />
+                </a>
+            </Link>
             <ul>
                 <li>
                     <Link href='/'>
                         <a>
-                            Komuniti
+                            Temu Ramah
                         </a>
                     </Link>
                 </li>
                 <li>
-                    <Link href='/jobs'>
+                    <Link href='/'>
                         <a>
-                            Pekerjaan
+                            Tentang Kami
                         </a>
                     </Link>
                 </li>
                 <li>
-                    <Link href='/products'>
+                    <Link href='/'>
                         <a>
-                            Produk
+                            Iklan
                         </a>
                     </Link>
                 </li>
