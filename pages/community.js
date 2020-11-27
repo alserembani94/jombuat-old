@@ -5,22 +5,11 @@ import axios from 'axios'
 import Header from '../components/header'
 import Footer from '../components/footer'
 
+
 const Home = () => {
   const [community, setCommunity] = useState([]);
   const [search, setSearch] = useState('');
   const [filteredCommunity, setFilteredCommunity] = useState([]);
-
-  // * Category section
-  const categoryList = [
-    { name: 'all', label: 'semua' },
-    { name: 'members', label: 'ahli' },
-    { name: 'jobs', label: 'kerja' },
-    { name: 'products', label: 'produk' }];
-  const [category, setCategory] = useState(categoryList[0].name);
-
-  const handleCategory = (selectedCategory) => {
-    setCategory(() => selectedCategory);
-  };
 
   useEffect(() => {
     axios.get('https://v1.nocodeapi.com/alserembani/google_sheets/XQsvzGyRcILpJBNG?tabId=community').then(result => {
@@ -75,22 +64,13 @@ const Home = () => {
           <h4>Cari pengasas, pembuat, pekerjaan & produk</h4>
         </div>
 
-        <div className={styles.search_area}>
-          <ul className={styles.search_filter}>
-            {
-              categoryList.map(cat => (
-                <li key={cat.name} onClick={() => handleCategory(cat.name)} data-active={cat.name === category}>{cat.label}</li>
-              ))
-            }
-          </ul>
-          <input
-            className={styles.search}
-            type="text"
-            value={search}
-            onChange={({ currentTarget: { value } }) => setSearch(() => value)}
-            placeholder="Cari siapa dalam komuniti kita!"
-          />
-        </div>
+        <input
+          className={styles.search}
+          type="text"
+          value={search}
+          onChange={({ currentTarget: { value } }) => setSearch(() => value)}
+          placeholder="Cari siapa dalam komuniti kita!"
+        />
 
         <ul className={styles.result}>
           {filteredCommunity && filteredCommunity.map(user => (

@@ -1,12 +1,12 @@
 .header {
   width: 100%;
-  box-shadow: 0px 4px 10px #00000011;
   display: flex;
-  justify-content: center;
   position: sticky;
-  top: 0px;
-  background: white;
+  justify-content: center;
+  background: #0a0101;
   z-index: 10;
+  top: 0px;
+  color: white;
 }
 
 .highlight {
@@ -15,7 +15,10 @@
   text-align: center;
   align-items: center;
   margin-bottom: 40px;
-  /* line-height: 2rem; */
+  color: white;
+  background: black;
+  width: 100%;
+  padding: 100px 50px;
 }
 
 .highlight > h1 {
@@ -35,18 +38,15 @@
   background-size: 400% 400%;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradientWipe 10s ease infinite;
+  animation: gradientWipe 3.5s ease infinite;
 }
 
 .brand {
   display: flex;
-  background: linear-gradient(90deg, #1f6cd6 0%, #72b6b0 100%);
-  background-size: 400% 400%;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
   font-weight: 700;
   font-size: 1.5rem;
-  animation: gradientWipe 10s ease infinite;
+  width: 180px;
+  height: auto;
 }
 
 @keyframes gradientWipe {
@@ -105,8 +105,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: sticky;
-  bottom: 0px;
+  /* position: sticky; */
+  /* bottom: 0px; */
   background: white;
 }
 
@@ -220,26 +220,65 @@
   display: flex;
   flex-flow: column wrap;
   flex-grow: 1;
-  padding: 50px 20px;
+  /* padding: 50px 20px; */
   align-items: center;
-  width: clamp(300px, 100%, 1200px);
+  /* width: clamp(300px, 100%, 1200px); */
+  width: 100%;
 }
 
 .search {
   padding: 20px 40px;
   font-size: 1rem;
-  border-radius: 2rem;
+  border-radius: 10px;
   border: none;
   box-shadow: 1px 1px 8px #00000034;
   transition: all 0.3s ease-in-out;
-  width: 60ch;
-  margin-bottom: 3rem;
+  width: clamp(280px, 100%, 75ch);
+  margin: 0px 20px 3rem;
   text-align: center;
 }
 
 .search:focus {
   outline: none;
   box-shadow: 1px 1px 10px #4A8EED;
+  transition: all 0.3s ease-in-out;
+}
+
+.search_area {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.search_filter {
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 50px;
+}
+
+.search_filter > li {
+  min-width: 80px;
+  padding: 10px 30px;
+  text-transform: capitalize;
+  border-radius: 10px;
+  margin: 0px 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.search_filter > li:hover {
+  background: linear-gradient(90deg, #4A8EED 0%, #73CCC5 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.search_filter > li[data-active=true] {
+  background: black;
+  color: white;
   transition: all 0.3s ease-in-out;
 }
 

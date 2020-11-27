@@ -5,7 +5,7 @@ const Header = () => (
     <header className={styles.header} data-trigger={false}>
         <div>
             {/* <h3 className={styles.brand}>JomCreate</h3> */}
-            <img src='./Logo-JomBuat.svg' alt="JomBuat" />
+            <img className={styles.brand} src='./Logo-JomBuat.svg' alt="JomBuat" />
             <ul>
                 <li>
                     <Link href='/'>
