@@ -30,7 +30,7 @@
 }
 
 .highlight_gradient {
-  background: linear-gradient(90deg, #1f6cd6 0%, #72b6b0 100%);
+  background: linear-gradient(90deg, #4A8EED 0%, #73CCC5 100%);
   background-size: 400% 400%;
   background-clip: text;
   -webkit-text-fill-color: transparent;
