@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import jobStyles from '../styles/Jobs.module.css'
-import productStyles from '../styles/Products.module.css'
+import stail from '../styles/Home.module.scss'
+import stailPekerjaan from '../styles/Jobs.module.scss'
+import stailProduk from '../styles/Products.module.scss'
 import axios from 'axios'
 import Header from '../components/header'
 import Footer from '../components/footer'
 
-const filterData = (dataArray, searchParam) => {
+import KadAhli from '../components/home/kadAhli'
+
+const tapisData = (dataArray, searchParam) => {
   const filteredData = dataArray.filter(data => {
     const splitName = data.nama.split(' ');
     let flag = false;
@@ -20,50 +22,50 @@ const filterData = (dataArray, searchParam) => {
 };
 
 const Home = () => {
-  const [community, setCommunity] = useState([]);
-  const [filteredCommunity, setFilteredCommunity] = useState([]);
-  const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [jobs, setJobs] = useState([]);
-  const [filteredJobs, setFilteredJobs] = useState([]);
+  const [komuniti, setKomuniti] = useState([]);
+  const [komunitiTertapis, setKomunitiTertapis] = useState([]);
+  const [produk, setProduk] = useState([]);
+  const [produkTertapis, setProdukTertapis] = useState([]);
+  const [pekerjaan, setPekerjaan] = useState([]);
+  const [pekerjaanTertapis, setPekerjaanTertapis] = useState([]);
   
-  const [search, setSearch] = useState('');
+  const [carian, setCarian] = useState('');
 
   // * Category section
-  const categoryList = [
-    { name: 'all', label: 'semua' },
-    { name: 'members', label: 'ahli' },
-    { name: 'jobs', label: 'kerja' },
-    { name: 'products', label: 'produk' }];
-  const [category, setCategory] = useState(categoryList[0].name);
+  const senaraiKategori = [
+    { nama: 'semua', label: 'semua' },
+    { nama: 'ahli', label: 'ahli' },
+    { nama: 'pekerjaan', label: 'kerja' },
+    { nama: 'produk', label: 'produk' }];
+  const [kategori, setKategori] = useState(senaraiKategori[0].nama);
 
-  const handleCategory = (selectedCategory) => {
-    setCategory(() => selectedCategory);
+  const ubahKategori = (kategoriTerpilih) => {
+    setKategori(() => kategoriTerpilih);
   };
 
   useEffect(() => {
-    axios.get('https://v1.nocodeapi.com/alserembani/google_sheets/XQsvzGyRcILpJBNG?tabId=komuniti').then(result => {
-      setCommunity(() => result.data.data);
-      setFilteredCommunity(() => result.data.data);
+    axios.get('https://v1.nocodeapi.com/alserembani/google_sheets/XQsvzGyRcILpJBNG?tabId=komuniti').then(hasil => {
+      setKomuniti(() => hasil.data.data);
+      setKomunitiTertapis(() => hasil.data.data);
     });
-    axios.get('https://v1.nocodeapi.com/alserembani/google_sheets/XQsvzGyRcILpJBNG?tabId=produk').then(result => {
-      setProducts(() => result.data.data);
-      setFilteredProducts(() => result.data.data);
+    axios.get('https://v1.nocodeapi.com/alserembani/google_sheets/XQsvzGyRcILpJBNG?tabId=produk').then(hasil => {
+      setProduk(() => hasil.data.data);
+      setProdukTertapis(() => hasil.data.data);
     });
-    axios.get('https://v1.nocodeapi.com/alserembani/google_sheets/XQsvzGyRcILpJBNG?tabId=pekerjaan').then(result => {
-      setJobs(() => result.data.data);
-      setFilteredJobs(() => result.data.data);
+    axios.get('https://v1.nocodeapi.com/alserembani/google_sheets/XQsvzGyRcILpJBNG?tabId=pekerjaan').then(hasil => {
+      setPekerjaan(() => hasil.data.data);
+      setPekerjaanTertapis(() => hasil.data.data);
     });
   }, [])
 
   useEffect(() => {
-    setFilteredCommunity(() => filterData(community, search));
-    // setFilteredProducts(() => filterData(products, search));
-    // setFilteredJobs(() => filterData(jobs, search));
-  }, [search])
+    setKomunitiTertapis(() => tapisData(komuniti, carian));
+    setProdukTertapis(() => tapisData(produk, carian));
+    setPekerjaanTertapis(() => tapisData(pekerjaan, carian));
+  }, [carian])
 
   return (
-    <div className={styles.container}>
+    <div className={stail.container}>
       <Head>
         <title>JomBuat - Komuniti</title>
         <link rel="icon" href="/faviconjombuat.svg" />
@@ -89,53 +91,41 @@ const Home = () => {
 
       <Header />
 
-      <section className={styles.body}>
-        <div className={styles.highlight}>
+      <section className={stail.body}>
+        <div className={stail.highlight}>
           <h1>Bila-bila masa, di mana sahaja</h1>
-          <h1 className={styles.highlight_gradient}>Belajar & Lancarkan!</h1>
+          <h1 className={stail.highlight_gradient}>Belajar & Lancarkan!</h1>
           <h4>Cari pengasas, pembuat, pekerjaan & produk</h4>
         </div>
 
-        <div className={styles.search_area}>
-          <ul className={styles.search_filter}>
+        <div className={stail.search_area}>
+          <ul className={stail.search_filter}>
             {
-              categoryList.map(cat => (
-                <li key={cat.name} onClick={() => handleCategory(cat.name)} data-active={cat.name === category}>{cat.label}</li>
+              senaraiKategori.map(kat => (
+                <li key={kat.nama} onClick={() => ubahKategori(kat.nama)} data-active={kat.nama === kategori}>{kat.label}</li>
               ))
             }
           </ul>
           <input
-            className={styles.search}
+            className={stail.search}
             type="text"
-            value={search}
-            onChange={({ currentTarget: { value } }) => setSearch(() => value)}
+            value={carian}
+            onChange={({ currentTarget: { value } }) => setCarian(() => value)}
             placeholder="Cari siapa dalam komuniti kita!"
           />
         </div>
 
         {
-          (category === 'all' || category === 'members') && <ul className={styles.result}>
-            {filteredCommunity && filteredCommunity.map(user => (
-              <a href={user.pautan} target="_blank" rel="noreferrer noopener" key={user.row_id}>
-                <li className={styles.user_card}>
-                  <img className={styles.user_avatar} src={user.avatar} alt={user.nama} />
-                  <p className={styles.user_name}>{user.nama}</p>
-                  <p className={styles.user_designation}>{user.jawatan}</p>
-                  <p className={styles.user_organisation}>{user.organisasi}</p>
-                  <p className={styles.user_location}>{user.lokasi}</p>
-                </li>
-              </a>
-            ))}
-          </ul>
+          (kategori === 'semua' || kategori === 'ahli') && <KadAhli senaraiKomuniti={komunitiTertapis} />
         }
 
         {
-          (category === 'all' || category === 'products') && <ul className={`${styles.result} ${productStyles.result}`}>
+          (kategori === 'semua' || kategori === 'produk') && <ul className={`${stail.result} ${stailProduk.result}`}>
             {
-                filteredProducts && filteredProducts.map(prod => (
+                produkTertapis && produkTertapis.map(prod => (
                   <a href={prod.pautan} target="_blank" rel="noreferrer noopener">
-                      <li className={productStyles.product_card} key={prod.row_id}>
-                          <p className={productStyles.product_name}>{prod.nama}</p>
+                      <li className={stailProduk.product_card} key={prod.row_id}>
+                          <p className={stailProduk.product_name}>{prod.nama}</p>
                       </li>
                   </a>
                 ))
@@ -144,14 +134,14 @@ const Home = () => {
         }
 
         {
-          (category === 'all' || category === 'jobs') && <ul className={`${styles.result} ${jobStyles.result}`}>
+          (kategori === 'semua' || kategori === 'pekerjaan') && <ul className={`${stail.result} ${stailProduk.result}`}>
             {
-                filteredJobs && filteredJobs.map(job => {
+                pekerjaanTertapis && pekerjaanTertapis.map(job => {
                     if (job.status === 'FALSE') return (
                         <a href={job.pautan} target="_blank" rel="noreferrer noopener" key={job.row_id}>
-                            <li className={jobStyles.job_card}>
-                                <p className={jobStyles.job_company}>{job.syarikat}</p>
-                                <p className={jobStyles.job_role}>{job.nama}</p>
+                            <li className={stailProduk.job_card}>
+                                <p className={stailProduk.job_company}>{job.syarikat}</p>
+                                <p className={stailProduk.job_role}>{job.nama}</p>
                             </li>
                         </a>
                       )
