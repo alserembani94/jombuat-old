@@ -267,6 +267,13 @@
   justify-content: center;
   padding: 20px;
   box-shadow: 1px 1px 20px #1D2F4819;
+  position: relative;
+  animation: cardAppear 0.8s ease-in-out;
+}
+
+@keyframes cardAppear {
+  0% { opacity: 0%; top: -10px; }
+  100% { opacity: 100%; top: 0px; }
 }
 
 .user_avatar {

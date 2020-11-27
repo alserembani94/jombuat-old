@@ -12,6 +12,12 @@
     padding: 30px 50px;
     border-bottom: 1px solid #00000022;
     transition: all 0.3s ease;
+    animation: cardAppear 0.8s ease-in-out;
+}
+
+@keyframes cardAppear {
+  0% { opacity: 0%; top: -10px; }
+  100% { opacity: 100%; top: 0px; }
 }
 
 .product_card:hover {
