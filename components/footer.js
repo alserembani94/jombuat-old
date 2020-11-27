@@ -22,9 +22,9 @@ const Footer = () => (
     <footer className={styles.footer}>
         <div>
             <div className={styles.author}>
-                Made with 💜 by&nbsp;
-                <a href="https://fajarsiddiq.com" target="_blank" rel="noreferrer noopener">Fajar Siddiq</a>&nbsp;&&nbsp;
-                <a href="https://atifaiman.dev" target="_blank" rel="noreferrer noopener">Atif Aiman</a>&nbsp;
+                Dibuat oleh&nbsp;
+                <a href="https://fajarsiddiq.com" target="_blank" rel="noreferrer noopener">🇸🇬 Fajar Siddiq</a>&nbsp;&&nbsp;
+                <a href="https://atifaiman.dev" target="_blank" rel="noreferrer noopener">🇲🇾 Atif Aiman</a>&nbsp;
             </div>
             <div className={styles.cta}>
                 <ul>
