@@ -45,14 +45,14 @@ const Home = () => {
         <meta property="og:url" content="https://jombuat.club/" />
         <meta property="og:title" content="JomBuat - Komuniti" />
         <meta property="og:description" content="Bila-bila masa, di mana sahaja, belajar dan lancarkan! Bersama komuniti kami!" />
-        <meta property="og:image" content="./Logo-JomBuat.svg" />
+        <meta property="og:image" content="https://jombuat.club/jombuatmeta.png" />
 
         {/* <!-- Twitter --> */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://jjombuat.club/" />
         <meta property="twitter:title" content="JomBuat - Komuniti" />
         <meta property="twitter:description" content="Bila-bila masa, di mana sahaja, belajar dan lancarkan! Bersama komuniti kami!" />
-        <meta property="twitter:image" content="./Logo-JomBuat.svg" />
+        <meta property="twitter:image" content="https://jombuat.club/jombuatmeta.png" />
       </Head>
 
       <Header />
