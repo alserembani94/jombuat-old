@@ -233,6 +233,7 @@
   transition: all 0.3s ease-in-out;
   width: 60ch;
   margin-bottom: 3rem;
+  text-align: center;
 }
 
 .search:focus {
