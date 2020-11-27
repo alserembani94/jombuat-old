@@ -1,7 +1,7 @@
 
 ## Jombuat.club
 
-Jombuat Club - Anytime, Anywhere. Learn to make! 
+Jombuat Club - Anytime, Anywhere, Learn & Launch 
 
 Join our chat at Telegram https://t.me/jombuatclub
 
