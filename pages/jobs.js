@@ -15,6 +15,7 @@ const Jobs = () => {
   useEffect(() => {
     axios.get('https://v1.nocodeapi.com/alserembani/google_sheets/XQsvzGyRcILpJBNG?tabId=jobs').then(result => {
       setJobs(() => result.data.data);
+      setFilteredJobs(() => result.data.data);
     });
   }, [])
 

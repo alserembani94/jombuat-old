@@ -15,7 +15,7 @@ const Products = () => {
   useEffect(() => {
     axios.get('https://v1.nocodeapi.com/alserembani/google_sheets/XQsvzGyRcILpJBNG?tabId=products').then(result => {
       setProducts(() => result.data.data);
-      console.log(result.data.data);
+      setFilteredProducts(() => result.data.data);
     });
   }, [])
 

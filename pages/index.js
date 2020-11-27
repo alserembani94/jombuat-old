@@ -14,6 +14,7 @@ const Home = () => {
   useEffect(() => {
     axios.get('https://v1.nocodeapi.com/alserembani/google_sheets/XQsvzGyRcILpJBNG?tabId=community').then(result => {
       setCommunity(() => result.data.data);
+      setFilteredCommunity(() => result.data.data);
     });
   }, [])
 
