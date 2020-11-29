@@ -6,6 +6,7 @@ import Layout from '../components/layout'
 import KadAhli from '../components/home/kadAhli'
 import KadPekerjaan from '../components/home/kadPekerjaan'
 import KadProduk from '../components/home/kadProduk'
+import Banner from '../components/banner'
 
 const tapisData = (dataArray, searchParam) => {
     const filteredData = dataArray.filter(data => {
@@ -70,11 +71,7 @@ const Home = () => {
             pautan="https://jombuat.club"
         >
             <section className={stail.body}>
-                <div className={stail.highlight}>
-                    <h1>Bila-bila masa, di mana sahaja</h1>
-                    <h1 className={stail.highlight_gradient}>Belajar & Lancarkan!</h1>
-                    <h4>Cari pengasas, pembuat, pekerjaan & produk</h4>
-                </div>
+                <Banner />
 
                 <div className={stail.search_area}>
                     <ul className={stail.search_filter}>

@@ -19,16 +19,16 @@ const Header = () => (
                     </Link>
                 </li>
                 <li>
-                    <Link href='/tentang-kami'>
+                    <Link href='/'>
                         <a>
-                            Tentang Kami
+                            Iklan
                         </a>
                     </Link>
                 </li>
                 <li>
-                    <Link href='/'>
+                    <Link href='/tentang-kami'>
                         <a>
-                            Iklan
+                            Tentang Kami
                         </a>
                     </Link>
                 </li>

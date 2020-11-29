@@ -1,0 +1,16 @@
+.page {
+    &_container {
+        width: clamp(280px, 100%, 1200px);
+        margin: 0px 20px;
+        padding-top: 100px;
+    }
+
+    &_huraian {
+        line-height: 2rem;
+        text-align: center;
+
+        p {
+            margin-bottom: 2rem;
+        }
+    }
+}

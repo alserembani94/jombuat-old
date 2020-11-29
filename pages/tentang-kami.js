@@ -1,8 +1,10 @@
 import {
     getPostData,
 } from '../lib/contents.js'
-import stail from '../styles/Halaman.module.scss'
+import stail from '../styles/TentangKami.module.scss'
 import Layout from '../components/layout'
+import Banner from '../components/banner'
+import Image from 'next/image'
 
 export const getStaticProps = async() => {
     const pageData = await getPostData('tentang_kami');
@@ -20,8 +22,19 @@ const TentangKami = ({ pageData }) => (
         gambar="https://jombuat.club/jombuatmeta.png"
         pautan="https://jombuat.club"
     >
-        <div style={stail.page_container}>
-            <article>
+        <Banner />
+        <div className={stail.page_container}>
+            <div className={stail.page_pembangun}>
+                <div className={stail.pembangun}>
+                    {/* <Image
+                        src={pageData.gambar1}
+                        alt={pageData.nama1}
+                        width={200}
+                        height={200}
+                    /> */}
+                </div>
+            </div>
+            <article className={stail.page_huraian}>
                 <div dangerouslySetInnerHTML={{ __html: pageData.contentHtml }} />
             </article>
         </div>
