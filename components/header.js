@@ -32,6 +32,13 @@ const Header = () => (
                         </a>
                     </Link>
                 </li>
+                <li className={styles.header_submit}>
+                    <Link href='/'>
+                        <a>
+                            Serahkan
+                        </a>
+                    </Link>
+                </li>
             </ul>
         </div>
     </header>

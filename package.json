@@ -10,10 +10,13 @@
   "dependencies": {
     "algoliasearch": "^4.8.2",
     "axios": "^0.21.0",
+    "gray-matter": "^4.0.2",
     "next": "10.0.3",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-instantsearch-dom": "^6.8.2",
+    "remark": "^13.0.0",
+    "remark-html": "^13.0.1",
     "sass": "^1.29.0"
   }
 }

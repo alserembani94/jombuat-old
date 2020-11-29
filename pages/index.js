@@ -69,9 +69,8 @@ const Home = () => {
       <Head>
         <title>JomBuat - Komuniti</title>
         <link rel="icon" href="/faviconjombuat.svg" />
-        {/* <link rel="icon" href="/favicon.ico" /> */}
         {/* Primary Meta Tags */}
-        <meta name="title" content="JomBuat - Komuniti" />
+        <meta name="title" content="JomBuat" />
         <meta name="description" content="Bila-bila masa, di mana sahaja, belajar dan lancarkan! Bersama komuniti kami!" />
 
         {/* Open Graph / Facebook */}
