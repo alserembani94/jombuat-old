@@ -15,7 +15,6 @@ const purgecss = [
             return broadMatches.concat(innerMatches);
         },
     },
-    🩹
 ];
 
 module.exports = {
