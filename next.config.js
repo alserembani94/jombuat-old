@@ -1,7 +1,8 @@
+// next.config.js
 module.exports = {
     images: {
         domains: [
-            'https://i.iib.co',
+            'i.ibb.co'
         ],
-    }
+    },
 }

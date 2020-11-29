@@ -2,16 +2,41 @@
     &_container {
         width: clamp(280px, 100%, 1200px);
         margin: 0px 20px;
-        padding-top: 100px;
+        padding-top: 50px;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
     }
 
     &_huraian {
         line-height: 2rem;
         text-align: center;
         
-🩹 
         p {
             margin-bottom: 2rem;
         }
+    }
+
+    &_pembangun {
+        display: flex;
+        width: fit-content;
+        margin-bottom: 50px;
+    }
+}
+
+.pembangun {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    text-align: center;
+    margin: 0px 30px;
+
+    &_gambar {
+        margin-bottom: 10px;
+    }
+
+    &_nama {
+        font-size: 1.5rem;
+        font-weight: 700;
     }
 }
