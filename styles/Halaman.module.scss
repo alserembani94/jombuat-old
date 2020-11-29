@@ -325,6 +325,18 @@
   margin: 0px 5px;
 }
 
+.page {
+  &-wrapper {
+    width: 100%;
+    height: fit-content;
+  }
+
+  &-container {
+    width: clamp(280px, 100%, 1200px);
+    margin: 0px 20px;
+  }
+}
+
 @keyframes cardAppear {
   0% { opacity: 0%; top: -10px; }
   100% { opacity: 100%; top: 0px; }

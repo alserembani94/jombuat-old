@@ -1,0 +1,12 @@
+.badan {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.kandungan {
+    flex-grow: 1;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}

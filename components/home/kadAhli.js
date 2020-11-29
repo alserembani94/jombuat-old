@@ -1,4 +1,4 @@
-import stail from '../../styles/Home.module.scss'
+import stail from '../../styles/Halaman.module.scss'
 
 const KadAhli = ({ senaraiKomuniti = [] }) => (
     <ul className={stail.result}>

@@ -1,4 +1,4 @@
-import styles from '../styles/Home.module.scss'
+import styles from '../styles/Halaman.module.scss'
 
 const callToAction = [
     {
@@ -30,7 +30,7 @@ const Footer = () => (
                 <ul>
                     {
                         callToAction.map(cta => (
-                            <li>
+                            <li key={cta.name}>
                                 <a className={styles.cta_link}  href={cta.url} target="_blank" rel="noreferrer noopener">
                                     <img className={styles.cta_icon}  src={cta.icon} alt={cta.name}/>
                                 </a>
