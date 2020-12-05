@@ -2,6 +2,7 @@ import Head from 'next/head'
 import stail from './layout.module.scss'
 import Header from './header'
 import Footer from './footer'
+import NavDrawer from './navdrawer'
 
 const Layout = ({ children, tajuk, huraian, pautan, gambar }) => {
     return (
@@ -35,6 +36,7 @@ const Layout = ({ children, tajuk, huraian, pautan, gambar }) => {
              </main>
 
             <Footer />
+            <NavDrawer />
         </div>
     )
 }

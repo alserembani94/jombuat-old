@@ -10,3 +10,30 @@
     flex-flow: column nowrap;
     align-items: center;
 }
+
+.navdrawer {
+    @media only screen and (min-width: 769px) {
+        display: none;
+    }
+
+    display: flex;
+    background-color: black;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    position: sticky;
+    bottom: 0px;
+    padding: 15px 20px;
+
+    font-size: 0.8rem;
+
+    &_butang {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+    }
+
+    &_ikon {
+        margin-bottom: 2px;
+    }
+}
