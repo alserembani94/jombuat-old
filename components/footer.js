@@ -18,8 +18,8 @@ const callToAction = [
     },
 ];
 
-const Footer = () => (
-    <footer className={styles.footer}>
+const Footer = ({ display = "all" }) => (
+    <footer className={styles.footer} data-visible={display}>
         <div>
             <div className={styles.author}>
                 Dibuat oleh&nbsp;

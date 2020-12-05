@@ -35,7 +35,7 @@ const Layout = ({ children, tajuk, huraian, pautan, gambar }) => {
                  {children}
              </main>
 
-            <Footer />
+            <Footer display="desktop" />
             <NavDrawer />
         </div>
     )

@@ -48,6 +48,7 @@
   z-index: 10;
   top: 0px;
   color: white;
+  height: 100px;
 
   &_desktop {
     @media only screen and (max-width: 768px) {
@@ -77,12 +78,59 @@
     button {
       position: absolute;
       right: 0px;
+      top: 8px;
       padding: 5px;
       width: 40px;
       height: 40px;
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+  }
+
+  &_laci {
+    width: 100%;
+    height: calc(100vh - 185px);
+    top: 100%;
+    position: absolute;
+    display: flex;
+    overflow: hidden;
+
+    @media (min-width: 769px) { display: none; }
+
+    & > div {
+      background: #F8F8F8;
+      position: relative;
+      display: flex;
+      width: 100%;
+      flex-flow: column wrap;
+      align-items: center;
+      justify-content: center;
+  
+      & > ul {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        width: clamp(200px, 80%, 768px);
+        border-bottom: 1px solid #00000019;
+        & > li {
+          text-align: center;
+          color: black;
+          border-top: 1px solid #00000019;
+          width: 100%;
+          border-radius: 0px;
+          margin: 0px;
+          padding: 15px 0px;
+        }
+      }
+    }
+
+    &[data-visible=true] {
+      & > div { right: 0%; transition: all 0.3s ease-in-out; }
+    }
+    &[data-visible=false] {
+      pointer-events: none;
+      & > div { right: -100%; transition: all 0.3s ease-in-out; }
     }
   }
   
@@ -139,7 +187,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: white;
+  background: inherit;
 
   & > div {
     width: clamp(300px, 100%, 1200px);
@@ -148,6 +196,27 @@
     justify-content: space-between;
     margin: 25px 20px;
     align-items: center;
+  }
+
+  &[data-visible="desktop"] {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &[data-visible="mobile"] {
+    @media (min-width: 769px) {
+      display: none;
+    }
+    border-top: none;
+
+    & > div {
+      color: black;
+      flex-flow: column wrap;
+      & > div {
+        margin-top: 10px;
+      }
+    }
   }
 }
 
