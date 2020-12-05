@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import styles from '../styles/Halaman.module.scss'
+import { IconContext } from 'react-icons'
+import { IoMenu } from 'react-icons/io5'
 
 const Header = () => (
     <header className={styles.header} data-trigger={false}>
-        <div>
-            {/* <h3 className={styles.brand}>JomCreate</h3> */}
+        <div className={styles.header_desktop}>
             <Link href='/'>
                 <a>
                     <img className={styles.brand} src='./Logo-JomBuat.svg' alt="JomBuat" />
@@ -40,6 +41,18 @@ const Header = () => (
                     </Link>
                 </li>
             </ul>
+        </div>
+        <div className={styles.header_tablet}>
+            <Link href='/'>
+                <a>
+                    <img className={styles.brand} src='./Logo-JomBuat.svg' alt="JomBuat" />
+                </a>
+            </Link>
+            <button>
+                <IconContext.Provider value={{ className: "Icon" }}>
+                    <IoMenu />
+                </IconContext.Provider>
+            </button>
         </div>
     </header>
 )

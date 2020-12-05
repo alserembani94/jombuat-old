@@ -2,7 +2,7 @@
     &_container {
         width: clamp(280px, 100%, 1200px);
         margin: 0px 20px;
-        padding-top: 50px;
+        padding: 50px 20px 0px;
         display: flex;
         flex-flow: column wrap;
         align-items: center;
@@ -20,7 +20,9 @@
     &_pembangun {
         display: flex;
         width: fit-content;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
+        flex-flow: row wrap;
+        justify-content: center;
     }
 }
 
@@ -29,7 +31,7 @@
     flex-flow: column wrap;
     align-items: center;
     text-align: center;
-    margin: 0px 30px;
+    margin: 0px 30px 20px;
 
     &_gambar {
         margin-bottom: 10px;

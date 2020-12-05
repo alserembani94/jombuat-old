@@ -39,7 +39,7 @@
   height: auto;
 }
 
-.header{
+.header {
   width: 100%;
   display: flex;
   position: sticky;
@@ -49,13 +49,41 @@
   top: 0px;
   color: white;
 
-  & > div {
+  &_desktop {
+    @media only screen and (max-width: 768px) {
+      display: none !important;
+    }
+
     width: clamp(300px, 100%, 1200px);
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
     margin: 25px 20px;
     align-items: center;
+  }
+
+  &_tablet {
+    @media only screen and (min-width: 769px) {
+      display: none !important;
+    }
+
+    display: flex;
+    width: clamp(300px, 100%, 1200px);
+    margin: 25px 20px;
+    flex-flow: row wrap;
+    justify-content: center;
+    position: relative;
+
+    button {
+      position: absolute;
+      right: 0px;
+      padding: 5px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
   
   & ul {
@@ -125,6 +153,8 @@
 
 .author {
   display: flex;
+  flex-flow: row wrap;
+  align-items: center;
 }
 
 .cta {
@@ -237,6 +267,7 @@
     display: flex;
     flex-flow: row wrap;
     margin-bottom: 50px;
+    justify-content: center;
 
     & > li {
       min-width: 80px;
