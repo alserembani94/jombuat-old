@@ -371,55 +371,123 @@
   max-width: 1200px;
   width: 100%;
   display: flex;
-  flex-flow: row wrap;
-  text-align: center;
-  justify-content: space-around;
-  /* height: 65vh; */
+  padding: 0px 20px;
   overflow: auto;
-  /* box-shadow: inset 0px -17px 5px -9px #00000015, inset 0px 12px 5px -9px #00000015; */
+  flex-flow: column nowrap;
+
 }
 
 .user {
   &_card {
-    width: 300px;
-    height: 400px;
-    overflow: hidden;
-    /* border: 1px solid burlywood; */
-    border-radius: 8px;
-    margin: 10px 20px;
-    display: flex;
-    flex-flow: column wrap;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    box-shadow: 1px 1px 20px #1D2F4819;
-    position: relative;
     animation: cardAppear 0.8s ease-in-out;
+    & > a {
+      display: flex;
+      align-items: center;
+      flex-flow: row wrap;
+      flex-grow: 1;
+      padding: 5px 10px;
+      p {
+        margin-right: 15px;
+      }
+      &:hover {
+        background-color: #EFEFEF;
+      }
+
+      @media (max-width: 500px) {
+        flex-flow: column wrap;
+        p {
+          margin-right: 0px;
+        }
+      }
+    }
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    p {
+      margin-right: 15px;
+    }
+
+    @media (max-width: 500px) {
+      flex-flow: column wrap;
+      padding: 10px;
+      box-shadow: 0px 0px 10px #00000011;
+      align-items: stretch;
+      border-radius: 10px;
+      p {
+        font-size: 0.9rem;
+      }
+    }
   }
   
   &_avatar {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    object-position: center;
+    position: relative;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     box-shadow: 0px 0px 20px #00000012;
-    margin-bottom: 10px;
+    margin-right: 20px;
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+      width: 60px;
+      height: 60px;
+    }
+
+    @media (max-width: 500px) {
+      width: 50px;
+      height: 50px;
+      margin-right: 0px;
+    }
   }
   
   &_name {
     font-weight: 700;
-    text-align: center;
-    font-size: 1.5rem;
-    background: linear-gradient(90deg, #4A8EED 0%, #73CCC5 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: 1rem;
+    flex: 1 1 10ch;
+
+    @media (max-width: 500px) {
+      flex: 0;
+    }
   }
   
   &_designation {
     font-weight: 700;
     color: #00000088;
+    flex: 1 1 10ch;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+  
+  &_organisation {
+    font-weight: 700;
+    color: #00000088;
+    flex: 1 1 10ch;
+
+    @media (max-width: 500px) {
+      flex: 0;
+    }
+  }
+
+  &_hubung {
+    padding: 10px 25px;
+    border-radius: 8px;
+    background: black;
+    color: white;
+    font-weight: 700;
+    &[data-visible=false] {
+      visibility: hidden;
+
+      @media (max-width: 500px) {
+        display: none;
+      }
+    }
+
+    @media (max-width: 500px) {
+      margin-top: 10px;
+    }
   }
 }
 
