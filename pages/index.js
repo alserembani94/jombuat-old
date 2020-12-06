@@ -82,12 +82,14 @@ const Home = () => {
                         }
                     </ul>
                     <input
+                        id="carian"
                         className={stail.search}
                         type="text"
                         value={carian}
                         onChange={({ currentTarget: { value } }) => setCarian(() => value)}
                         placeholder="Anda cari, dan kami akan senaraikan untuk anda"
                     />
+                    <label for="carian">Carian</label>
                 </div>
 
                 {/* Penghasilan Komponen Kad Ahli */}

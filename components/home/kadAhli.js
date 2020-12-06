@@ -33,7 +33,7 @@ const KadAhli = ({ senaraiKomuniti = [] }) => (
                                 <p className={stail.user_organisation}>{ahli.organisasi}</p>
                             </a>
                         </Link>
-                        <button className={stail.user_hubung} data-visible={ahli.media_sosial !== ""} onClick={() => window.open(ahli.media_sosial, "_blank")}>Hubung</button>
+                        <button aria-label="Berhubung dengan media sosial" className={stail.user_hubung} data-visible={ahli.media_sosial !== ""} onClick={() => window.open(ahli.media_sosial, "_blank")}>Hubung</button>
                     </li>
             ))
         }

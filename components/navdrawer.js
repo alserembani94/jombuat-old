@@ -11,6 +11,7 @@ const NavDrawer = () => {
                         <div className={stail.navdrawer_ikon}>
                             <Image
                                 src="/ikon/Icon-Jombuat.svg"
+                                alt="Senarai"
                                 width={30}
                                 height={30}
                                 className={stail.navdrawer_ikon}
@@ -26,6 +27,7 @@ const NavDrawer = () => {
                         <div className={stail.navdrawer_ikon}>
                             <Image
                                 src="/ikon/Icon-Chat.svg"
+                                alt="Temu Ramah"
                                 width={30}
                                 height={30}
                                 className={stail.navdrawer_ikon}
@@ -41,6 +43,7 @@ const NavDrawer = () => {
                         <div className={stail.navdrawer_ikon}>
                             <Image
                                 src="/ikon/Icon-Contact.svg"
+                                alt="Komuniti"
                                 width={30}
                                 height={30}
                                 className={stail.navdrawer_ikon}
@@ -56,6 +59,7 @@ const NavDrawer = () => {
                         <div className={stail.navdrawer_ikon}>
                             <Image
                                 src="/ikon/Icon-Mail.svg"
+                                alt="Langgan"
                                 width={30}
                                 height={30}
                                 className={stail.navdrawer_ikon}
