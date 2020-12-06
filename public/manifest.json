@@ -1,7 +1,8 @@
 {
+    "name": "Jombuat",
     "theme_color": "#4A8EED",
     "background_color": "#FFFFFF",
-    "display": "browser",
+    "display": "fullscreen",
     "scope": "/",
     "start_url": "/",
     "app_name": "Jombuat",
