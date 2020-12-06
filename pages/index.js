@@ -86,7 +86,7 @@ const Home = () => {
                         type="text"
                         value={carian}
                         onChange={({ currentTarget: { value } }) => setCarian(() => value)}
-                        placeholder="Cari siapa dalam komuniti kita!"
+                        placeholder="Anda cari, dan kami akan senaraikan untuk anda"
                     />
                 </div>
 
@@ -98,6 +98,8 @@ const Home = () => {
 
                 {/* Penghasilan Komponen Kad Pekerjaan */}
                 { (kategori === 'semua' || kategori === 'pekerjaan') && <KadPekerjaan senaraiPekerjaan={pekerjaanTertapis} /> }
+
+                
            </section>
         </Layout>
     )
