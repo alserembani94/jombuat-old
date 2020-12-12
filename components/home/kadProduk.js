@@ -5,11 +5,11 @@ const KadProduk = ({ senaraiProduk = [] }) => (
     <ul className={`${stail.result} ${stailProduk.result}`}>
         {
             senaraiProduk && senaraiProduk.map(prod => (
-                <a href={prod.pautan} target="_blank" rel="noreferrer noopener">
-                    <li className={stailProduk.product_card} key={prod.row_id}>
+                <li className={stailProduk.product_card} key={prod.row_id}>
+                    <a href={prod.pautan} target="_blank" rel="noreferrer noopener">
                         <p className={stailProduk.product_name}>{prod.nama}</p>
-                    </li>
-                </a>
+                    </a>
+                </li>
             ))
         }
     </ul>

@@ -6,12 +6,12 @@ const KadPekerjaan = ({ senaraiPekerjaan = [] }) => (
         {
             senaraiPekerjaan && senaraiPekerjaan.map(job => {
                 if (job.status === 'FALSE') return (
-                    <a href={job.pautan} target="_blank" rel="noreferrer noopener" key={job.row_id}>
-                        <li className={stailPekerjaan.job_card}>
+                    <li className={stailPekerjaan.job_card} key={job.nama}>
+                        <a href={job.pautan} target="_blank" rel="noreferrer noopener" key={job.row_id}>
                             <p className={stailPekerjaan.job_company}>{job.syarikat}</p>
                             <p className={stailPekerjaan.job_role}>{job.nama}</p>
-                        </li>
-                    </a>
+                        </a>
+                    </li>
                 )
             })
         }

@@ -16,7 +16,7 @@ const KadAhli = ({ senaraiKomuniti = [] }) => (
                 //     </li>
                 // </a>
                 ahli.sorok !== 'TRUE' && 
-                    <li className={stail.user_card}>
+                    <li className={stail.user_card} key={ahli.nama}>
                         <Link href={ahli.pautan} key={ahli.row_id}>
                             <a target={ahli.pautan === "" ? "_self" : "_blank"} rel="noreferrer noopener">
                                 <div className={stail.user_avatar}>

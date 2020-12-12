@@ -13,6 +13,9 @@
     border-bottom: 1px solid #00000022;
     transition: all 0.3s ease;
     animation: cardAppear 0.8s ease-in-out;
+    &:last-child {
+        border-bottom: 0px;
+    }
 }
 
 @keyframes cardAppear {

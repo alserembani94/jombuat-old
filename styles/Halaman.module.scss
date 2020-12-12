@@ -491,6 +491,34 @@
   }
 }
 
+.tajukBahagian {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  width: clamp(280px, 100%, 1200px);
+  padding: 20px 20px;
+  margin: 10px 0px;
+  p {
+    padding: 0px 15px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #4A8EED 0%, #73CCC5 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  &_pengasing {
+    height: 0.5rem;
+    background: linear-gradient(90deg, #4A8EED 0%, #73CCC5 100%);
+    &_pendek {
+      width: 50px;
+    }
+    &_panjang {
+      flex-grow: 1;
+    }
+  }
+}
+
 .cta > ul {
   display: flex;
   flex-flow: row wrap;
