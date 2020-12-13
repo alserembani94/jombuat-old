@@ -21,13 +21,19 @@ export const getStaticProps = async() => {
 }
 
 const TentangKami = ({ pageData, testimoni }) => {
+    const dikuasakan = () => {
+        const gambar = [];
+        const pautan = [];
+        Object.entries(pageData).forEach(([dataKey, dataValue]) => {
+            dataKey.startsWith('dikuasakan_gambar') && gambar.push(dataValue);
+            dataKey.startsWith('dikuasakan_pautan') && pautan.push(dataValue);
+        });
 
-    useEffect(() => {
-        console.log(pageData);
-        Object.entries(pageData).forEach(([key, value]) => {
-            console.log(key);
-        })
-    }, []);
+        const senaraiKuasa = [];
+        gambar.forEach((img, index) => senaraiKuasa.push({ gambar: img, pautan: pautan[index] }));
+
+        return senaraiKuasa;
+    }
 
     return (
         <Layout
@@ -73,16 +79,17 @@ const TentangKami = ({ pageData, testimoni }) => {
                 <p>Dikuasakan oleh:</p>
                 <div className={stail.dikuasakan_senarai}>
                 {
-                    Object.entries(pageData).map(([dataKey, dataValue]) => (
-                        dataKey.startsWith('dikuasakan') && 
-                        <div className={stail.dikuasakan_gambar}>
-                            <Image
-                                src={dataValue}
-                                alt={dataValue}
-                                layout="fill"
-                                objectFit="contain"
-                                objectPosition="center"
-                            />
+                    dikuasakan().map((kuasa) => (
+                        <div className={stail.dikuasakan_gambar} key={kuasa.pautan}>
+                            <a href={kuasa.pautan} target="_blank" rel="noopener noreferrer">
+                                <Image
+                                    src={kuasa.gambar}
+                                    alt={kuasa.gambar}
+                                    layout="fill"
+                                    objectFit="contain"
+                                    objectPosition="center"
+                                />
+                            </a>
                         </div>
                     ))
                 }
