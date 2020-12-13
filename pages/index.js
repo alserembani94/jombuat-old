@@ -59,7 +59,6 @@ const Home = ({ message, data }) => {
         setKomunitiTertapis(() => data.komuniti);
         setProdukTertapis(() => data.produk);
         setPekerjaanTertapis(() => data.pekerjaan);
-        // console.log(data);
     }, [])
 
     useEffect(() => {
