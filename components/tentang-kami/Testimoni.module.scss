@@ -1,0 +1,17 @@
+.senarai {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.kad {
+    flex: 0 1 350px;
+    height: 15rem;
+    padding: 40px 25px;
+    box-shadow: 1px 1px 9px #00000026;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+}

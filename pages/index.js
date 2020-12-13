@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react'
 import stail from '../styles/Halaman.module.scss'
 import Layout from '../components/layout'
 
-import KadAhli from '../components/home/kadAhli'
-import KadPekerjaan from '../components/home/kadPekerjaan'
-import KadProduk from '../components/home/kadProduk'
+import KadAhli from '../components/halaman/kadAhli'
+import KadPekerjaan from '../components/halaman/kadPekerjaan'
+import KadProduk from '../components/halaman/kadProduk'
 import Banner from '../components/banner'
 
 const tapisData = (dataArray, searchParam) => {

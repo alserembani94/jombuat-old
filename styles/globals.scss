@@ -38,6 +38,8 @@ a {
 :root {
   font-size: 16px;
 
+  --page-width-limiter: clamp(280px, 100%, 1200px);
+
   @media (max-width: 768px) {
     font-size: 14px;
   }

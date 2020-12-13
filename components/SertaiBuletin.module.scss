@@ -1,0 +1,47 @@
+.seksyen {
+    margin: 100px 0px;
+    width: var(--page-width-limiter);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    text-align: center;
+}
+
+.tajuk {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.borang {
+    width: 100%;
+    padding: 10px 20px 0px;
+    display: flex;
+    justify-content: center;
+    input {
+        background: #FAFAFA;
+        padding: 15px 25px;
+        border-radius: 12px;
+        flex: 0 1 40ch;
+        margin-right: 20px;
+    }
+    button {
+        padding: 15px 35px;
+        background: black;
+        color: white;
+        border-radius: 12px;
+        font-weight: 700;
+        &:hover {
+            background: linear-gradient(90deg, #4A8EED 0%, #73CCC5 100%);
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        flex-flow: column wrap;
+        justify-content: flex-start;
+        input {
+            flex: 0;
+            margin-right: 0px;
+            margin-bottom: 15px;
+        }
+    }
+}
