@@ -6,6 +6,7 @@ import KadAhli from '../components/halaman/kadAhli'
 import KadPekerjaan from '../components/halaman/kadPekerjaan'
 import KadProduk from '../components/halaman/kadProduk'
 import Banner from '../components/banner'
+import SertaiBuletin from '../components/sertaiBuletin'
 
 const tapisData = (dataArray, searchParam) => {
     const filteredData = dataArray.filter(data => {
@@ -136,7 +137,7 @@ const Home = ({ message, data }) => {
                     )
                 }
 
-                
+                <SertaiBuletin />
            </section>
         </Layout>
     )
